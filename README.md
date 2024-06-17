@@ -1,58 +1,63 @@
+# Cognito Client Grant CDK Stack
 
-# Welcome to your CDK Python project!
+## Introduction
 
-This is a blank project for CDK development with Python.
+This project provides an AWS CDK stack that sets up two Cognito User Pools with client grants and resource servers. It also creates an API Gateway and integrates it with a Lambda function to handle authentication and authorization using the Cognito User Pools.
+The purpose of the project is to explain how to set up client credential grants with Cognito User Pools but also how to integrate an API with more than one cognito user pool using multiple authorizers.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+![Alt Text](archi_cog.png "Architecture")
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
 
-To manually create a virtualenv on MacOS and Linux:
+## Prerequisites
 
-```
-$ python3 -m venv .venv
-```
+- AWS CLI installed and configured with appropriate credentials
+- Node.js and npm installed
+- Python 3.7 or later installed
+- AWS CDK installed
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+## Installation
 
-```
-$ source .venv/bin/activate
-```
+1. Clone the repository:
+   ```
+   git clone giturl
+   ```
 
-If you are a Windows platform, you would activate the virtualenv like this:
+2. Navigate to the project directory:
+   ```
+   cd cognito-client-grant-cdk
+   ```
 
-```
-% .venv\Scripts\activate.bat
-```
+3. Create a virtual environment:
+   ```
+   python3 -m venv .venv
+   ```
 
-Once the virtualenv is activated, you can install the required dependencies.
+4. Activate the virtual environment:
+   - For macOS and Linux:
+     ```
+     source .venv/bin/activate
+     ```
+   - For Windows:
+     ```
+     .venv\Scripts\activate.bat
+     ```
 
-```
-$ pip install -r requirements.txt
-```
+5. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-At this point you can now synthesize the CloudFormation template for this code.
+## Usage
 
-```
-$ cdk synth
-```
+1. Synthesize the CloudFormation template:
+   ```
+   cdk synth
+   ```
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
+2. Deploy the CDK stack to your AWS account:
+   ```
+   cdk deploy
+   ```
 
-## Useful commands
+3. Access the deployed API Gateway endpoint to interact with the Cognito User Pools and Lambda function, thanks to the output of the stack!
 
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
